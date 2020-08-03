@@ -1,7 +1,6 @@
 FROM alpine:3.10
 
-COPY . ./bulgar
-WORKDIR /bulgar
+COPY entrypoint.sh /entrypoint.sh
 RUN ls
 RUN chmod +x entrypoint.sh
 
