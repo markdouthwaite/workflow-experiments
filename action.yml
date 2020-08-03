@@ -1,16 +1,18 @@
 # action.yml
-name: "Containerised Python 3.x"
-description: "Run a Python 3.x script in a Ubuntu 18.04 (Bionic) container."
+name: "Containerised Python 3"
+description: "Run a command in a Python 3 container."
 inputs:
-  python-version: # id of input
-    description: "Python version to install."
+  command:
+    description: "Run python tests."
     required: true
-    default: "3.7.8"
+    default: "pytest tests"
 runs:
   using: "docker"
   image: "Dockerfile"
+  pre-entrypoint: "install.sh"
+  entrypoint: "entrypoint.sh"
   args:
-    - ${{ inputs.python-version }}
+    - ${{ inputs.command }}
 
 # # action.yml
 # name: "Containerised Python"
