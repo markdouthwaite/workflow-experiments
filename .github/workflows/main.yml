@@ -16,3 +16,5 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: cat alt.txt
+      - name: list files
+        run: ls -als
