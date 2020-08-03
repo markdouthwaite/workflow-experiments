@@ -1,0 +1,5 @@
+FROM python:{{ tag }}
+
+RUN echo "Hello, world! From inside {{ tag }} too!"
+
+ENTRYPOINT [ "{{ entrypoint }}" ]
