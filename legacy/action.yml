@@ -1,16 +1,13 @@
 # action.yml
-name: "Containerised Python"
-description: "Greet someone and record the time"
+name: "Containerised Python 3.x"
+description: "Run a Python 3.x script in a Ubuntu 18.04 (Bionic) container."
 inputs:
-  who-to-greet: # id of input
-    description: "Who to greet"
+  python-version: # id of input
+    description: "Python version to install."
     required: true
-    default: "World"
-outputs:
-  time: # id of output
-    description: "The time we greeted you"
+    default: "3.7.8"
 runs:
   using: "docker"
-  image: "Dockerfile"
+  image: "docker://python:${{ inputs.python-version }}"
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.python-version }}
